@@ -11,6 +11,13 @@ from io import BytesIO
 
 app = FastAPI()
 
+import uvicorn
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port, log_level="info")
+
+
 # Allow CORS for all origins
 app.add_middleware(
     CORSMiddleware,
@@ -19,6 +26,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 def clean_transparency(image, threshold=100):
     """Remove semi-transparent pixels around the main object."""
