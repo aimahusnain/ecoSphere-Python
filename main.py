@@ -132,8 +132,8 @@ async def process_image(
         
         # Save final image
         output_path = f"output/processed_{file.filename}"
-        os.makedirs("output", exist_ok=True)
-        final_image.save(output_path, "PNG")
+        # os.makedirs("output", exist_ok=True)
+        # final_image.save(output_path, "PNG")
         
         return FileResponse(output_path)
 
